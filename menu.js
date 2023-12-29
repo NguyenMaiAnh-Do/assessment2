@@ -32,7 +32,14 @@
 
 //CODE HERE
 
-
+const pizza = {
+    name: "Margherita",
+    price: 11.99,
+    category: "entree",
+    popularity: 8.5,
+    rating: 4.3,
+    tags: ["gluten-free", "kid", "italian"]
+};
 
 //////////////////PROBLEM 2////////////////////
 /*
@@ -43,7 +50,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.popularity)
 
 /*
     Second, log the second tag in your pizza's
@@ -53,7 +60,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -64,7 +71,9 @@
 
 //CODE HERE
 
+const { price } = pizza;
 
+console.log(price)
 /*
     Fourth, and last, destructure the category
     property.
@@ -74,6 +83,8 @@
 
 //CODE HERE
 
+const { category } = pizza;
+console.log(category)
 
 //////////////////PROBLEM 3////////////////////
 /*
@@ -89,7 +100,40 @@
 
 //CODE HERE
 
-
+const foodArr = [
+    {
+        name: "Pepperoni",
+        price: 14.99,
+        category: "entree",
+        popularity: 9.2,
+        rating: 4.5,
+        tags: ["meat lovers", "classic", "spicy"]
+    },
+    {
+        name: "Vegetarian Supreme",
+        price: 13.49,
+        category: "entree",
+        popularity: 8.8,
+        rating: 4.2,
+        tags: ["vegetarian", "healthy", "colorful"]
+    },
+    {
+        name: "BBQ Chicken",
+        price: 16.99,
+        category: "entree",
+        popularity: 8.0,
+        rating: 4.1,
+        tags: ["bbq", "chicken", "smoky"]
+    },
+    {
+        name: "Hawaiian",
+        price: 11.99,
+        category: "entree",
+        popularity: 7.5,
+        rating: 3.9,
+        tags: ["pineapple", "ham", "sweet"]
+    }
+];
 
 //////////////////PROBLEM 4////////////////////
 /*
@@ -109,8 +153,8 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
-
+const filteredFood = foodArr.filter((food) => food.tags.includes("vegetarian"))
+console.log(filteredFood)
 
 
 //////////////////PROBLEM 5////////////////////
@@ -148,7 +192,10 @@
 */
 
 //CODE HERE
-
+function filterByProperty(property, number){
+    const ans = foodArr.filter((food) => food[property] > number)
+    return ans
+}
 
 /*
     Invoke the `filterByProperty` function, passing
@@ -158,3 +205,5 @@
 */
 
 //CODE HERE
+
+console.log(filterByProperty('rating', 4))
