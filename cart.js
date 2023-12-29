@@ -18,7 +18,7 @@
     the food. 
 */
 
-const cart = [
+const carts = [
     {
         name: 'pizza', 
         price: 9.99
@@ -35,8 +35,8 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
-
+const summedPrice = carts.reduce((total, cart) => total + cart.price)
+console.log(summedPrice)
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -55,7 +55,11 @@ const cart = [
 
 //CODE HERE
 
+function calcFinalPrice(cartTotal, couponValue, tax){
+    cartTotal = cartTotal*(1+tax) - couponValue
+    return cartTotal
 
+}
 
 //////////////////PROBLEM 3////////////////////
 /*  
