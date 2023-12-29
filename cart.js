@@ -83,7 +83,21 @@ function calcFinalPrice(cartTotal, couponValue, tax){
 
 /*
     TEXT ANSWER HERE
+CustomerID:
+Data Type: Integer
+Explanation: This property will store a unique identifier for each customer. Using an integer data type is appropriate for an identifier as it allows for easy sorting and indexing.
 
+Name:
+Data Type: String
+Explanation: The customer's name is essential for personalization and communication. Storing it as a string allows for flexibility in handling various name formats.
+
+Email:
+Data Type: String
+Explanation: Storing the customer's email address is crucial for communication, order confirmation, and marketing purposes. Using a string data type allows for storing email addresses of varying lengths.
+
+OrderHistory:
+Data Type: List or Array of Order Objects
+Explanation: To keep track of a customer's order history, a list or array of order objects would be appropriate. Each order object within the list could contain details such as order number, items ordered, date, and total cost. This allows for easy retrieval and analysis of a customer's past orders.
 */
 
 /*
@@ -92,3 +106,40 @@ function calcFinalPrice(cartTotal, couponValue, tax){
 */
 
 //CODE HERE
+class Customer {
+    constructor(customerID, name, email, orderHistory = []) {
+      this.customerID = customerID;
+      this.name = name;
+      this.email = email;
+      this.orderHistory = orderHistory;
+    }
+  
+    // Method to add a new order to the order history
+    addOrder(order) {
+      this.orderHistory.push(order);
+    }
+  
+    // Method to retrieve the customer's order history
+    getOrderHistory() {
+      return this.orderHistory;
+    }
+  }
+  
+  // Example customer object
+  const exampleCustomer = new Customer(1, "John Doe", "john@example.com");
+  
+  // Example order object
+  const exampleOrder = {
+    orderNumber: 12345,
+    items: ["Burger", "Fries", "Drink"],
+    date: new Date(),
+    totalCost: 25.99,
+  };
+  
+  // Adding the example order to the customer's order history
+  exampleCustomer.addOrder(exampleOrder);
+  
+  // Retrieving and logging the customer's order history
+  const customerOrderHistory = exampleCustomer.getOrderHistory();
+  console.log(customerOrderHistory);
+  
